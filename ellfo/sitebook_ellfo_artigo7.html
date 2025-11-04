@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Dignidade é Direito • O Poder do Artigo 7º – Ellfo</title>
+  <meta name="description" content="Sitebook horizontal: 12 cards, promessa forte e compra na Kiwify. Estilo Ellfo, fundo estrelado, mobile-first." />
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Dignidade é Direito • O Poder do Artigo 7º – Ellfo"/>
+  <meta property="og:description" content="Descubra o poder do Artigo 7º e entre no primeiro lote por R$7."/>
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#03160d" />
+  <style>
+    :root{
+      --bg:#03160d; --bg2:#071f14; --ink:#f3fff7; --muted:#cfe9d8;
+      --yellow:#ffd84d; --green:#34d17a; --green-dark:#138a4f; --red:#ff4d4d; --card:#0d2b1d;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);font:400 15px/1.5 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;overflow:hidden}
+    /* Fundo estrelado */
+    #stars{position:fixed;inset:0;z-index:0;display:block;background:transparent}
+    /* Layout horizontal */
+    .viewport{position:relative;z-index:1;height:100svh;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;display:flex;gap:12px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .viewport::-webkit-scrollbar{display:none}
+    .panel{flex:0 0 100vw;height:100%;scroll-snap-align:center;display:flex;align-items:center;justify-content:center;padding:20px}
+    .card{width:min(92vw,540px);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.10);box-shadow:0 10px 30px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.05);border-radius:22px;padding:22px 18px;position:relative}
+    .card:before{content:"";position:absolute;inset:0;border-radius:22px;pointer-events:none;box-shadow:0 0 0 2px rgba(255,77,77,.08)}
+    .kicker{letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--yellow);font-size:12px}
+    h1{font-size:28px;line-height:1.15;margin:.35em 0 .25em}
+    h2{font-size:22px;line-height:1.15;margin:.4em 0 .25em}
+    p{margin:.6em 0;color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:16px;background:linear-gradient(180deg,var(--green),#22c06a);color:#031f12;font-weight:900;letter-spacing:.02em;border:1px solid var(--green-dark);cursor:pointer;text-decoration:none;box-shadow:0 10px 24px rgba(35,192,107,.28);transition:transform .08s ease, box-shadow .35s ease}
+    .btn:active{transform:translateY(1px)}
+    .footer-ellfo{width:100%;text-align:center;font-size:12px;color:rgba(255,255,255,.75);position:fixed;bottom:10px;left:50%;transform:translateX(-50%);z-index:10;line-height:1.6;font-weight:500;font-family:Inter,system-ui,sans-serif}
+    .footer-ellfo a{color:var(--yellow);text-decoration:none;transition:all .25s ease}
+    .footer-ellfo a:hover{color:#ffef8f;text-shadow:0 0 6px rgba(212,164,58,.4)}
+    @media (max-width:340px){h1{font-size:24px}.card{padding:16px}}
+  </style>
+</head>
+<body>
+  <div style="position:fixed;top:10px;left:12px;z-index:6;font-weight:800;letter-spacing:.02em;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.15);padding:6px 10px;border-radius:12px;backdrop-filter:blur(6px)">
+    <span style="color:var(--yellow)">Dignidade é Direito</span> · <a href="https://instagram.com/carlostxis" target="_blank" style="color:var(--ink);text-decoration:none">@carlostxis</a> <span style="opacity:.8">(Mestre Ellfo)</span>
+  </div>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <main class="viewport" id="viewport" aria-label="Navegação horizontal">
+    <section class="panel" id="c1">
+      <article class="card">
+        <div class="kicker">ELLFO • CONVITE</div>
+        <h1>Dignidade é Direito: o Poder do Artigo 7º</h1>
+        <p>Ganhar até R$7.000 investindo R$7. Sim, é possível — com conhecimento prático e legal. Deslize.</p>
+        <a class="btn" href="#c2" onclick="goTo(1)">Continuar</a>
+      </article>
+    </section>
+    <section class="panel" id="c2">
+      <article class="card">
+        <div class="kicker">JORNADA</div>
+        <h2>Você paga R$7 uma vez, pode ajudar muitos</h2>
+        <p>O ebook é seu para baixar e compartilhar com a família e amigos. Conhecimento que liberta não deve ser segredo.</p>
+        <a class="btn" href="#c3" onclick="goTo(2)">Ver como funciona</a>
+      </article>
+    </section>
+    <section class="panel" id="c3">
+      <article class="card">
+        <div class="kicker">ARTIGO 7º</div>
+        <h2>O Brasil prometeu dignidade</h2>
+        <p>Salário justo, proteção, descanso. Está escrito. O que falta é usar isso ao seu favor.</p>
+        <a class="btn" href="#c4" onclick="goTo(3)">Entendi</a>
+      </article>
+    </section>
+    <section class="panel" id="c4">
+      <article class="card">
+        <div class="kicker">BRASIL</div>
+        <h2>Um país que arrecada trilhões</h2>
+        <p>Quando você entende direitos e números, negocia melhor, protege renda e planeja o próximo passo.</p>
+        <a class="btn" href="#c5" onclick="goTo(4)">Próximo</a>
+      </article>
+    </section>
+    <section class="panel" id="c5">
+      <article class="card">
+        <div class="kicker">CONSCIÊNCIA</div>
+        <h2>Com esse conhecimento, você ganha poder</h2>
+        <p>Poder de dizer ‘não’ ao que te faz perder dinheiro. Poder de organizar, priorizar, respirar. Direito + ação = liberdade.</p>
+        <a class="btn" href="#c6" onclick="goTo(5)">Quero aprender</a>
+      </article>
+    </section>
+    <section class="panel" id="c6">
+      <article class="card">
+        <div class="kicker">O EBOOK</div>
+        <h2>R$7 hoje, liberdade financeira amanhã</h2>
+        <p>Planejar dinheiro, evitar dívidas, guardar antes de gastar e usar a lei a seu favor. Passo a passo simples.</p>
+        <a class="btn" href="#c7" onclick="goTo(6)">Me interessa</a>
+      </article>
+    </section>
+    <section class="panel" id="c7">
+      <article class="card">
+        <div class="kicker">COMUNIDADE</div>
+        <h2>Você cresce e ajuda outros a crescer</h2>
+        <p>Ao comprar, você pode compartilhar. Uma família informada muda sua história — e ajuda a mudar o Brasil.</p>
+        <a class="btn" href="#c8" onclick="goTo(7)">Continuar</a>
+      </article>
+    </section>
+    <section class="panel" id="c8">
+      <article class="card">
+        <div class="kicker">REAL</div>
+        <h2>Dinheiro bem cuidado muda tudo</h2>
+        <p>Dicas práticas: anotar gastos, separar 10%, fugir do impulso e aprender a multiplicar — não só receber.</p>
+        <a class="btn" href="#c9" onclick="goTo(8)">Próximo</a>
+      </article>
+    </section>
+    <section class="panel" id="c9">
+      <article class="card">
+        <div class="kicker">GARANTIA</div>
+        <h2>7 dias para testar sem risco</h2>
+        <p>Se não for para você, peça reembolso na plataforma em até 7 dias. Sem perguntas, sem burocracia.</p>
+        <a class="btn" href="#c10" onclick="goTo(9)">Seguir</a>
+      </article>
+    </section>
+    <section class="panel" id="c10">
+      <article class="card">
+        <div class="kicker">URGÊNCIA</div>
+        <h2>Lote de estreia por R$7</h2>
+        <p>Preço pode subir quando o lote fechar. Uma ação pequena hoje vale mais que 1.000 intenções.</p>
+        <a class="btn" href="#c11" onclick="goTo(10)">Quase lá</a>
+      </article>
+    </section>
+    <section class="panel" id="c11">
+      <article class="card">
+        <div class="kicker">PASSO PRÁTICO</div>
+        <h2>Três atitudes para começar hoje</h2>
+        <p>1) Guarde 10% antes de gastar. 2) Renegocie uma conta esta semana. 3) Liste 3 despesas essenciais do mês.</p>
+        <a class="btn" href="#c12" onclick="goTo(11)">Ir para o acesso</a>
+      </article>
+    </section>
+    <section class="panel" id="c12">
+      <article class="card">
+        <div class="kicker">ACESSO IMEDIATO</div>
+        <h2>Compre agora por R$7 na Kiwify</h2>
+        <p>Nome do livro: Dignidade é Direito — O Poder do Artigo 7º. Descubra o poder esquecido do Artigo 7º da Constituição Federal e entenda por que esse conhecimento pode mudar o futuro de todos os brasileiros. Um estudo revelador que desperta consciência, esperança e ação.</p>
+        <a class="btn" href="" target="_blank" rel="noopener">Comprar por R$7</a>
+      </article>
+    </section>
+  </main>
+  <footer class="footer-ellfo">
+    <p><a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a> | <a href="termos-de-uso.html" target="_blank">Termos de Uso</a></p>
+    <p>© 2025 Ellfo. Todos os direitos reservados.</p>
+  </footer>
+  <script>
+    const viewport=document.getElementById('viewport');
+    function goTo(index){ viewport.scrollTo({left:index*window.innerWidth,behavior:'smooth'}); }
+    // Starfield animado
+    const canvas=document.getElementById('stars');
+    const ctx=canvas.getContext('2d');
+    let w,h,stars=[];
+    function resize(){ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight; initStars(); }
+    function initStars(){ const count=Math.min(200,Math.ceil(w*h/9000)); stars=new Array(count).fill(0).map(()=>({ x:Math.random()*w, y:Math.random()*h, z:Math.random()*1+0.2, r:Math.random()*1.2+0.3 })); }
+    function step(){ ctx.clearRect(0,0,w,h); for(const s of stars){ s.x+=s.z*0.15; if(s.x>w){ s.x=0; s.y=Math.random()*h; } ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fillStyle=`rgba(255,216,77,${0.6*s.z})`; ctx.fill(); } requestAnimationFrame(step); }
+    window.addEventListener('resize',resize); resize(); step();
+  </script>
+</body>
+</html>

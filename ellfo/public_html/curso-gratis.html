@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mestre Ellfo</title>
+  <link rel="icon" href="/mnt/data/1-min.png">
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WS2MJBVB');</script>
+<!-- End Google Tag Manager -->
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808204161153350"
+     crossorigin="anonymous"></script>
+  <meta name="description" content="Sites Encantados — Ellfo. Um linkhub encantado inspirado em montanhas, chaves e olhos.">
+
+  <style>
+    :root{
+      --bg:#052612;            /* verde profundo */
+      --panel:#0b3e1f;         /* verde painel */
+      --gold:#d4a43a;          /* dourado suave */
+      --muted:#9fbf8f;         /* verde claro */
+      --glass: rgba(255,255,255,0.04);
+      --radius:18px;
+      --max-width:420px;
+    }
+
+    /* Reset */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      min-height:100%;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(212,164,58,0.03), transparent 6%),
+        linear-gradient(180deg,var(--bg) 0%, #06321b 60%);
+      color: #eaf6e9;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px 16px;
+    }
+
+    /* Card container (phone sized) */
+    .card {
+      width:100%;
+      max-width:var(--max-width);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));
+      border-radius:24px;
+      padding:20px;
+      box-shadow: 0 12px 30px rgba(3,10,6,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+      border: 1px solid rgba(212,164,58,0.06);
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* top: logo + title */
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:12px;
+    }
+    .logo {
+      width:72px;
+      height:72px;
+      border-radius:16px;
+      overflow:hidden;
+      flex:0 0 72px;
+      box-shadow: 0 6px 18px rgba(3,10,6,0.6);
+      border: 2px solid rgba(212,164,58,0.12);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .logo img{width:100%; height:100%; object-fit:cover; display:block;}
+
+    .brand h1{
+      margin:0;
+      font-family: Cinzel, serif;
+      color:var(--gold);
+      font-size:20px;
+      line-height:1;
+      letter-spacing:0.6px;
+      text-shadow: 0 2px 0 rgba(0,0,0,0.6);
+    }
+    .brand p{
+      margin:0;
+      font-size:12px;
+      color:var(--muted);
+      margin-top:4px;
+      font-weight:600;
+    }
+
+    /* subtitle / tagline */
+    .tag {
+      font-size:12px;
+      color:rgba(255,255,255,0.8);
+      margin-bottom:18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:8px;
+    }
+    .tag .site {
+      font-weight:600;
+      color:var(--gold);
+      font-size:12px;
+    }
+
+    /* Carousel area */
+    .carousel {
+      position:relative;
+      width:100%;
+      height:360px;
+      max-height:46vh;
+      border-radius:14px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.08));
+      border: 1px solid rgba(255,255,255,0.02);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+
+    .slides {
+      display:flex;
+      height:100%;
+      transition: transform 480ms cubic-bezier(.2,.9,.2,1);
+      will-change:transform;
+    }
+
+    .slide {
+      min-width:100%;
+      height:100%;
+      position:relative;
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:flex-end;
+      padding:18px;
+    }
+
+    /* overlay card on each slide */
+    .slide .cta {
+      width:100%;
+      background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.45));
+      border-radius:12px;
+      padding:14px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      backdrop-filter: blur(6px) saturate(120%);
+      border: 1px solid rgba(212,164,58,0.06);
+    }
+    .slide .thumb {
+      min-width:66px;
+      height:66px;
+      border-radius:10px;
+      overflow:hidden;
+      flex:0 0 66px;
+      border: 2px solid rgba(255,255,255,0.04);
+      background:var(--glass);
+    }
+    .slide .thumb img {width:100%;height:100%;object-fit:cover;display:block;}
+
+    .slide .meta {
+      flex:1;
+      color: #fff;
+    }
+    .slide .meta h3{
+      margin:0;
+      font-size:16px;
+      font-weight:700;
+      color:var(--gold);
+      font-family: Cinzel, serif;
+    }
+    .slide .meta p{
+      margin:6px 0 0 0;
+      font-size:13px;
+      color:rgba(255,255,255,0.85);
+      line-height:1.15;
+    }
+
+    .slide .meta .link-btn{
+      margin-top:10px;
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:10px;
+      background: linear-gradient(90deg, rgba(212,164,58,0.15), rgba(212,164,58,0.06));
+      color:var(--gold);
+      font-weight:700;
+      text-decoration:none;
+      font-size:13px;
+      border:1px solid rgba(212,164,58,0.18);
+    }
+
+    /* dots + arrows */
+    .controls {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      margin-top:12px;
+    }
+    .dot {
+      width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,0.1);
+      border:1px solid rgba(255,255,255,0.03);
+      transition: all 220ms;
+      cursor:pointer;
+    }
+    .dot.active{
+      transform:scale(1.6);
+      background:var(--gold);
+      box-shadow: 0 6px 16px rgba(212,164,58,0.18);
+      border-color:rgba(255,255,255,0.06);
+    }
+
+    .arrow {
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:35px;height:35px;border-radius:10px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(0,0,0,0.25);
+      border:1px solid rgba(255,255,255,0.03);
+      color:var(--gold);
+      cursor:pointer;
+      backdrop-filter: blur(6px);
+    }
+    .arrow.left{left:10px}
+    .arrow.right{right:10px}
+
+    /* final CTA */
+    .final {
+      margin-top:16px;
+      padding:12px;
+      border-radius:12px;
+      background: linear-gradient(180deg, rgba(212,164,58,0.03), rgba(0,0,0,0.02));
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      border:1px solid rgba(212,164,58,0.04);
+    }
+    .final .text {
+      font-size:14px;
+      color:var(--muted);
+      font-weight:600;
+    }
+    .final a.visit {
+      padding:10px 14px;
+      background:linear-gradient(90deg,var(--gold), rgba(212,164,58,0.9));
+      color:#07220b;
+      font-weight:800;
+      border-radius:10px;
+      text-decoration:none;
+      box-shadow: 0 10px 24px rgba(3,10,6,0.35);
+    }
+
+    /* sparkle particles (subtle) */
+    .particles {
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      mix-blend-mode:screen;
+    }
+    .particle {
+      position:absolute;
+      width:6px;height:6px;border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(212,164,58,0.6) 55%, transparent 60%);
+      opacity:0.9;
+      transform:translate3d(0,0,0);
+      filter: blur(0.6px);
+    }
+
+    /* responsive */
+    @media (max-width:420px){
+      .logo{width:60px;height:60px;border-radius:14px}
+      .brand h1{font-size:18px}
+      .carousel{height:320px}
+    }
+    /* ==== Footer Ellfo ==== */
+.footer-ellfo {
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  line-height: 1.6;
+  font-weight: 500;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.footer-ellfo a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.footer-ellfo a:hover {
+  color: #ffd773;
+  text-shadow: 0 0 6px rgba(212, 164, 58, 0.4);
+}
+
+/* Responsividade: centraliza bem em telas menores */
+@media (max-width: 480px) {
+  .footer-ellfo {
+    font-size: 11px;
+    line-height: 1.4;
+    padding: 6px 10px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WS2MJBVB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <main class="card" role="main" aria-label="Links encantados - Ellfo">
+    <!-- particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- brand -->
+    <header class="brand" aria-label="Logo e nome do site">
+      <figure class="logo" aria-hidden="true">
+        <!-- imagem de logo: se quiser troque o src -->
+        <img src="/mnt/data/1-min.png" alt="Logo Elfo" />
+      </figure>
+
+      <div>
+        <h1>CONHEÇA A HISTÓRIA DOS ELFOS</h1>
+        <p class="site">CONTEÚDO GRATUITO NO YOUTUBE</p>
+      </div>
+    </header>
+
+    <div class="tag">
+      <span>Novo Curso Que Traz a Revelação da Sabedoria Elfa Que Promete Unir Ciência, Filosofia e Espiritualidade em uma só voz. Essa é a maior viagem de todas.</span>
+      <span style="opacity:0.9;font-weight:600;">GRATUITO</span>
+    </div>
+    
+        <!-- carousel -->
+        <section class="carousel" aria-roledescription="carousel" aria-label="Carrossel de links encantados">
+            <div class="slides" id="slides">
+        
+        <!-- Slide 1 -->
+        <article class="slide" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.45)), url('/mnt/data/montanha.png');" role="group" aria-roledescription="slide" aria-label="Montanha Verde">
+          <div class="cta">
+            <div class="thumb"><img src="/mnt/data/desenho12.png" alt="thumbnail"></div>
+            <div class="meta">
+              <h3>Saiba Mais no Instagram</h3>
+              <p>Curso gratuito que une em uma só voz tudo que sabemos de importante para o dia a dia na ciência, filosofia e espiritualidade.</p>
+              <a class="link-btn" href="https://www.instagram.com/carlostxis/" target="_blank" rel="noopener">Entre Por Aqui</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 2 
+        <article class="slide" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.45)), url('/mnt/data/montanha.png');" role="group" aria-roledescription="slide" aria-label="Trilha Encantada">
+          <div class="cta">
+            <div class="thumb"><img src="/mnt/data/elfotb.png" alt="thumbnail"></div>
+            <div class="meta">
+              <h3>Conheça a Trilha</h3>
+              <p>Curso gratuito que une em uma só voz tudo que sabemos de importante para o dia a dia na ciência, filosofia e espiritualidade.</p>
+              <a class="link-btn" href="https://chat.whatsapp.com/HQwQ1UaIunb63YlAbULKjU?mode=wwc" target="_blank" rel="noopener">Grátis no Youtube</a>
+            </div>
+          </div>
+        </article>
+        -->
+
+
+        <!-- Slide 3 
+        <article class="slide" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.45)), url('/mnt/data/quadrado.png');" role="group" aria-roledescription="slide" aria-label="Pico Arcobaleno">
+          <div class="cta">
+            <div class="thumb"><img src="/mnt/data/9tb.png" alt="Pico thumbnail"></div>
+            <div class="meta">
+              <h3>Trilha Encantada do Olhar</h3>
+              <p>Galeria, ícones e a simbologia para inspirar a criação de capas e logos.</p>
+              <a class="link-btn" href="https://www.ellfo.com.br/galeria" target="_blank" rel="noopener">Se Inscreva Grátis</a>
+            </div>
+          </div>
+        </article>
+        -->
+      </div>
+
+      <!-- arrows 
+      <button class="arrow left" id="prev" aria-label="Anterior">&lt;</button>
+      <button class="arrow right" id="next" aria-label="Próximo">&gt;</button>
+    </section>
+    -->
+
+    <!-- dots -->
+    <div class="controls" id="dots" role="tablist" aria-label="Navegação do carrossel"></div>
+
+    <!-- final CTA -->
+    <div class="final" role="complementary" aria-label="Se encantou">
+      <div class="text">As leis não foram criadas — foram lembradas. São as mesmas leis que sustentam o universo e batem no ritmo do coração da Terra.</div>
+      <!--<a class="visit" href="https://www.ellfo.com.br" target="_blank" rel="noopener">www.ellfo.com.br</a> -->
+    </div>
+
+  </main>
+
+  <script>
+    (function(){
+      // simple carousel logic
+      const slidesEl = document.getElementById('slides');
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const dotsEl = document.getElementById('dots');
+      const prevBtn = document.getElementById('prev');
+      const nextBtn = document.getElementById('next');
+      let idx = 0;
+      let autoplay = true;
+      let timer = null;
+      const interval = 7000;
+
+      function goTo(i){
+        idx = (i + slides.length) % slides.length;
+        slidesEl.style.transform = 'translateX(' + (-idx * 100) + '%)';
+        updateDots();
+      }
+
+      function next(){ goTo(idx + 1) }
+      function prev(){ goTo(idx - 1) }
+
+      // create dots
+      slides.forEach((s, i) => {
+        const d = document.createElement('button');
+        d.className = 'dot';
+        d.setAttribute('aria-label','Ir para slide ' + (i+1));
+        d.addEventListener('click', ()=> { goTo(i); resetTimer(); });
+        dotsEl.appendChild(d);
+      });
+
+      function updateDots(){
+        Array.from(dotsEl.children).forEach((d, i)=> d.classList.toggle('active', i === idx));
+      }
+
+      prevBtn.addEventListener('click', ()=>{ prev(); resetTimer(); });
+      nextBtn.addEventListener('click', ()=>{ next(); resetTimer(); });
+
+      // autoplay
+      function startTimer(){
+        if(timer) clearInterval(timer);
+        timer = setInterval(()=>{ if(autoplay) next(); }, interval);
+      }
+      function resetTimer(){ autoplay = false; clearTimeout(timer); setTimeout(()=>{ autoplay = true; startTimer(); }, 5000); }
+
+      // drag/swipe support
+      let startX = 0, isDown=false;
+      slidesEl.addEventListener('pointerdown', (e)=>{ isDown=true; startX = e.clientX; slidesEl.style.transition='none'; });
+      slidesEl.addEventListener('pointerup', (e)=>{ if(!isDown) return; isDown=false; slidesEl.style.transition='transform 480ms cubic-bezier(.2,.9,.2,1)'; const diff = e.clientX - startX; if(diff > 50) prev(); else if(diff < -50) next(); });
+      slidesEl.addEventListener('pointerleave', ()=>{ isDown=false; slidesEl.style.transition='transform 480ms cubic-bezier(.2,.9,.2,1)'; });
+
+      // init
+      goTo(0);
+      startTimer();
+
+      // particles — subtle sparkling orbs
+      const particlesContainer = document.getElementById('particles');
+      const PARTICLE_COUNT = 14;
+      const W = particlesContainer.clientWidth || 400;
+      const H = particlesContainer.clientHeight || 360;
+
+      function rand(min,max){ return Math.random()*(max-min)+min }
+
+      for(let i=0;i<PARTICLE_COUNT;i++){
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const left = rand(6,94);
+        const top = rand(6,90);
+        const size = rand(4,10);
+        p.style.left = left + '%';
+        p.style.top = top + '%';
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+        p.style.opacity = (rand(0.25,0.9)).toFixed(2);
+        particlesContainer.appendChild(p);
+
+        // gentle float animation
+        const dur = rand(6000,12000);
+        const dx = rand(-14,14);
+        const dy = rand(-8,8);
+        p.animate([
+          { transform: 'translate3d(0,0,0) scale(1)', opacity: p.style.opacity },
+          { transform: `translate3d(${dx}px,${dy}px,0) scale(1.12)`, opacity: (parseFloat(p.style.opacity)-0.25).toFixed(2) },
+          { transform: 'translate3d(0,0,0) scale(1)', opacity: p.style.opacity }
+        ], {
+          duration: dur,
+          iterations: Infinity,
+          direction: 'alternate',
+          easing: 'ease-in-out',
+          delay: rand(0,2000)
+        });
+      }
+
+      // accessibility: pause autoplay on focus/hover
+      document.querySelector('.carousel').addEventListener('mouseenter', ()=> autoplay=false);
+      document.querySelector('.carousel').addEventListener('mouseleave', ()=> autoplay=true);
+
+      // resize observer for particles container if needed (keeps it positioned)
+      window.addEventListener('resize', ()=>{/* no-op but could update particle bounds */});
+    })();
+  </script>
+      <script>
+    if (!localStorage.getItem('cookieConsent')) {
+      const banner = document.createElement('div');
+      banner.innerHTML = `
+        <div style="position:fixed;bottom:0;left:0;width:100%;background:#222;color:#fff;padding:15px;text-align:center;z-index:9999;">
+          Usamos cookies para melhorar sua experiência. Ao continuar, você concorda com nossa 
+          <a href="/politica-de-privacidade.html" style="color:#4af;">Política de Privacidade</a>.
+          <button id="acceptCookies" style="margin-left:10px;padding:5px 10px;">OK</button>
+        </div>`;
+      document.body.appendChild(banner);
+      document.getElementById('acceptCookies').onclick = () => {
+        localStorage.setItem('cookieConsent', true);
+        banner.remove();
+      };
+    }
+    </script>
+  <footer class="footer-ellfo">
+    <p>
+      <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a> |
+      <a href="termos-de-uso.html" target="_blank">Termos de Uso</a>
+    </p>
+    <p>© 2025 Ellfo. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>

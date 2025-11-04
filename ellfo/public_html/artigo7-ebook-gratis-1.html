@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Artigo 7 | O Tesouro é Você • Coleção Premium</title>
+  <meta name="description" content="Coleção premium com 12 livros digitais por R$12. Linguagem leve, consciente e verdadeira: Artigo 7 | O Tesouro é Você." />
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Artigo 7 | O Tesouro é Você • Coleção Premium"/>
+  <meta property="og:description" content="12 livros digitais • R$12 • Leitura < 30 min cada • Garantia 7 dias • Kiwify"/>
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#07150F" />
+  <style>
+    :root{
+      --bg:#07150F; --bg2:#0c221a; --ink:#f5fff9; --muted:#cfe9d8;
+      --gold:#ffd977; --gold-d:#caa24a; --green:#2fd07a; --green-d:#138a4f; --red:#ff5a5a;
+      --glass:rgba(255,255,255,.06); --line:rgba(255,255,255,.14);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);font:400 15px/1.55 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;overflow:hidden}
+
+    /* Starfield */
+    #stars{position:fixed;inset:0;z-index:0}
+
+    /* Header */
+    .topbar{position:fixed;top:14px;left:16px;right:16px;display:flex;align-items:center;justify-content:space-between;z-index:5}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.02em}
+    .brand .mark{width:26px;height:26px;border-radius:7px;background:conic-gradient(from 200deg, #1a764b, #33d17a, #ffd977, #1a764b);box-shadow:0 0 18px rgba(51,209,122,.28)}
+    .brand b{color:var(--gold)}
+    .ig a{color:var(--ink);opacity:.9;text-decoration:none;font-weight:700}
+
+    /* Progress */
+    .progress-wrap{position:fixed;top:54px;left:50%;transform:translateX(-50%);width:min(94vw,620px);height:3px;background:rgba(255,255,255,.16);border-radius:999px;z-index:5}
+    .progress{height:100%;width:0%;background:linear-gradient(90deg,var(--gold),#fff2b8);border-radius:999px;transition:width .2s ease}
+
+    /* Horizontal viewport */
+    .viewport{position:relative;z-index:1;height:100svh;display:flex;gap:18px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 8px}
+    .viewport::-webkit-scrollbar{display:none}
+    .panel{flex:0 0 100vw;height:100%;scroll-snap-align:center;display:flex;align-items:center;justify-content:center;padding:20px}
+
+    /* Card Premium */
+    .card{width:min(92vw,560px);background:linear-gradient(180deg,var(--glass),rgba(255,255,255,.03));border:1px solid var(--line);border-radius:20px;padding:22px 18px;position:relative;backdrop-filter:blur(10px);box-shadow:0 16px 48px rgba(0,0,0,.30);animation:floaty 8s ease-in-out infinite alternate}
+    .card:after{content:"";position:absolute;inset:0;border-radius:20px;pointer-events:none;background:
+      radial-gradient(6px 6px at 8% 20%, rgba(255,217,119,.16), transparent 60%),
+      radial-gradient(5px 5px at 88% 26%, rgba(255,217,119,.10), transparent 60%),
+      radial-gradient(4px 4px at 12% 80%, rgba(51,209,122,.10), transparent 60%)}
+    .kicker{letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--gold);font-size:11px}
+    h1{font-size:28px;line-height:1.14;margin:.25em 0 .2em}
+    h2{font-size:22px;line-height:1.16;margin:.35em 0 .25em}
+    p{margin:.5em 0;color:var(--muted)}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:14px;background:linear-gradient(180deg,var(--green),#21c46f);color:#062216;font-weight:900;border:1px solid var(--green-d);text-decoration:none;letter-spacing:.02em;box-shadow:0 10px 28px rgba(33,196,111,.28)}
+    .btn:active{transform:translateY(1px)}
+    .btn.magic{position:relative;animation:glow 1.8s ease-in-out infinite alternate}
+    .btn.magic:after{content:"";position:absolute;inset:-2px;border-radius:16px;box-shadow:0 0 18px rgba(47,208,122,.35);pointer-events:none}
+
+    /* Chapter grid */
+    .chapters{display:grid;grid-template-columns:1fr;gap:10px;margin-top:8px}
+    .chip{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.04)}
+    .chip span{font-weight:700}
+
+    /* Modal (form) */
+    .modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(3,13,10,.65);backdrop-filter:blur(6px);z-index:50}
+    .modal[open]{display:grid}
+    .modal-card{width:min(92vw,560px);background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:16px;position:relative;box-shadow:0 18px 56px rgba(0,0,0,.45)}
+    .modal .close{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);width:36px;height:36px;border-radius:50%;color:#fff;cursor:pointer}
+    .form-wrap{background:rgba(8,24,16,.55);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px;margin-top:10px}
+
+    /* Footer */
+    footer{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);z-index:5;font-size:12px;color:rgba(255,255,255,.75);text-align:center}
+    footer a{color:var(--gold);text-decoration:none}
+
+    @keyframes glow{from{transform:translateY(0)}to{transform:translateY(1px)}}
+    @keyframes floaty{from{transform:translateY(0)}to{transform:translateY(-4px)}}
+    @media (max-width:360px){h1{font-size:24px}h2{font-size:20px}}
+  </style>
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <div class="topbar">
+    <div class="brand"><div class="mark"></div><div><b>Artigo 7</b> | O Tesouro é Você</div></div>
+    <div class="ig"><a href="https://instagram.com/carlostxis" target="_blank">@carlostxis</a></div>
+  </div>
+
+  <div class="progress-wrap"><div class="progress" id="progress"></div></div>
+
+  <main class="viewport" id="viewport" aria-label="Navegação horizontal">
+
+    <!-- 1 · Hero Premium -->
+    <section class="panel" id="c1">
+      <article class="card">
+        <div class="kicker">COLEÇÃO PREMIUM</div>
+        <h1>12 livros digitais. R$12. O tesouro é o povo.</h1>
+        <p>Uma leitura leve, consciente e verdadeira sobre a dignidade que a Constituição já prometeu. Crie clareza. Aja com união. Comece hoje.</p>
+        <a class="btn magic" href="#c2" onclick="goTo(1)">Conhecer a coleção</a>
+      </article>
+    </section>
+
+    <!-- 2 · Por que este livro existe (valor) -->
+    <section class="panel" id="c2">
+      <article class="card">
+        <div class="kicker">POR QUE EXISTE</div>
+        <h2>Brasil é potência em desenvolvimento</h2>
+        <p>Casa riquíssima: água, alimentos, energia, cultura e gente. Falta consciência, gestão e união. Este livro traduz o Artigo 7º em vida prática.</p>
+        <a class="btn" href="#c3" onclick="goTo(2)">Ver os capítulos</a>
+      </article>
+    </section>
+
+    <!-- 3 · Capítulos 1–4 -->
+    <section class="panel" id="c3">
+      <article class="card">
+        <div class="kicker">CAPÍTULOS</div>
+        <h2>Parte I — Fundamentos</h2>
+        <div class="chapters">
+          <div class="chip"><span>1. O Tesouro Esquecido</span><small>O povo como riqueza; Art.7º em linguagem humana.</small></div>
+          <div class="chip"><span>2. O Brasil é uma Casa Rica</span><small>Potência natural, cultural e humana.</small></div>
+          <div class="chip"><span>3. Como Funciona um País</span><small>Poderes, orçamento e papel do cidadão.</small></div>
+          <div class="chip"><span>4. De Onde Vem / Para Onde Vai</span><small>Trilhões, prioridades e transparência.</small></div>
+        </div>
+        <a class="btn" href="#c4" onclick="goTo(3)">Próxima parte</a>
+      </article>
+    </section>
+
+    <!-- 4 · Capítulos 5–8 -->
+    <section class="panel" id="c4">
+      <article class="card">
+        <div class="kicker">CAPÍTULOS</div>
+        <h2>Parte II — Direitos & Vida</h2>
+        <div class="chapters">
+          <div class="chip"><span>5. Salário Mínimo & Dignidade</span><small>DIEESE, valorização até 2027, família.</small></div>
+          <div class="chip"><span>6. Tempo, Descanso e Trabalho</span><small>Férias, 13º, FGTS, jornada justa.</small></div>
+          <div class="chip"><span>7. Direitos Pouco Usados</span><small>Licenças, adicionais, estabilidade.</small></div>
+          <div class="chip"><span>8. Finanças Conscientes</span><small>Organizar, poupar, renegociar, planejar.</small></div>
+        </div>
+        <a class="btn" href="#c5" onclick="goTo(4)">Próxima parte</a>
+      </article>
+    </section>
+
+    <!-- 5 · Capítulos 9–12 -->
+    <section class="panel" id="c5">
+      <article class="card">
+        <div class="kicker">CAPÍTULOS</div>
+        <h2>Parte III — União & Futuro</h2>
+        <div class="chapters">
+          <div class="chip"><span>9. O Brasil que Se Divide</span><small>Menos briga, mais solução.</small></div>
+          <div class="chip"><span>10. União: a Revolução</span><small>Comunidade, fiscalização, propósito comum.</small></div>
+          <div class="chip"><span>11. Se o Art.7 Virar Vida</span><small>1, 3, 5 e 10 anos; potência humana.</small></div>
+          <div class="chip"><span>12. Plano: Começa em Você</span><small>7 passos, 7 hábitos, 7 vitórias.</small></div>
+        </div>
+        <a class="btn" href="#c5a" onclick="goTo(5)">Quero o Livro 1 grátis</a>
+      </article>
+    </section>
+
+    <!-- 5a · Lead magnet: Livro 1 grátis -->
+    <section class="panel" id="c5a">
+      <article class="card">
+        <div class="kicker">PRESENTE</div>
+        <h2>Baixe o Livro 1 gratuitamente</h2>
+        <p>Receba por e-mail o primeiro livro: <strong>“O Tesouro Esquecido”</strong>. Linguagem leve, didática e inspiradora — leitura em menos de 30 minutos.</p>
+        <a class="btn magic" href="#form" onclick="openForm()">Receber grátis no meu e-mail</a>
+        <p style="font-size:12px;opacity:.85;margin-top:.6rem">Ao enviar, você concorda em receber o conteúdo e comunicações da Ellfo. Privacidade garantida.</p>
+        <a class="btn" style="margin-top:.5rem;background:linear-gradient(180deg,#ffd977,#f7c14a);border-color:#caa24a;color:#201800" href="#c6" onclick="goTo(6)">Continuar para a coleção completa</a>
+      </article>
+    </section>
+
+    <!-- 6 · Oferta Premium -->
+    <section class="panel" id="c6">
+      <article class="card">
+        <div class="kicker">OFERTA</div>
+        <h2>Coleção completa por R$12</h2>
+        <p>Pagamento seguro pela Kiwify. PDF enviado no e-mail logo após a confirmação. <strong>Garantia de 7 dias</strong>.</p>
+        <div style="display:flex;align-items:center;gap:10px;margin:.4rem 0 .8rem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Pagamento mediado por <strong>Kiwify</strong></span>
+        </div>
+        <a class="btn magic" href="" target="_blank" rel="noopener">Quero os 12 por R$12</a>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- Modal: RD Station Form (não quebra o layout) -->
+  <dialog class="modal" id="formModal">
+    <article class="modal-card">
+      <button class="close" aria-label="Fechar" onclick="closeForm()">✕</button>
+      <div class="kicker">ELLFO • LIVRO 1 GRATUITO</div>
+      <h2>Receba “O Tesouro Esquecido” por e-mail</h2>
+      <p class="note" style="color:var(--muted);margin:.25rem 0 .6rem">Entrega imediata. Verifique sua caixa de entrada e a aba de promoções.</p>
+      <div class="form-wrap">
+        <div role="main" id="ellfo-b6d5f4536f5112ef2490"></div>
+      </div>
+      <p style="font-size:12px;opacity:.85;margin-top:.6rem">Após o envio, você será redirecionado para a página de confirmação. Se preferir, configure no RD Station o <strong>redirecionamento pós-conversão</strong> para o link direto do PDF.</p>
+    </article>
+  </dialog>
+
+  <footer>
+    © Ellfo • Reembolso em 7 dias • <a href="#" target="_blank">Privacidade</a> · <a href="#" target="_blank">Termos</a>
+  </footer>
+
+  <!-- RD Station script (carregado uma única vez) -->
+  <script src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script>
+  <script>
+    // Inicializa RD Station quando o modal abrir (evita layout shift e conflitos)
+    <script>
+  // Aguarda o carregamento do RD Station Forms
+  let rdInited = false;
+  function ensureRD() {
+    if (rdInited) return;
+    try {
+      new RDStationForms('ellfo-b6df54356f5112ef2490', 'null')
+        .createForm()
+        .on('conversion', function () {
+          // Dispara o evento no dataLayer quando o formulário é enviado
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'form_submit',
+            form_name: 'ebook_artigo7'
+          });
+          console.log('Evento form_submit enviado para o dataLayer');
+        });
+      rdInited = true;
+    } catch (e) {
+      console.warn('RD Station ainda não disponível, tentando novamente...');
+      setTimeout(ensureRD, 200);
+    }
+  }
+  ensureRD();
+</script>
+
+    let rdInited = false;
+    function ensureRD(){
+      if(rdInited) return;
+      try{
+        new RDStationForms('ellfo-b6d5f4536f5112ef2490','null').createForm();
+        rdInited = true;
+      }catch(e){ console.warn('RD Station ainda não disponível, tentando novamente...'); setTimeout(ensureRD, 200); }
+    }
+
+    // Navegação
+    const viewport=document.getElementById('viewport');
+    function goTo(index){ viewport.scrollTo({left:index*window.innerWidth,behavior:'smooth'}); }
+
+    // Progresso dinâmico
+    const progress=document.getElementById('progress');
+    const PANELS = () => document.querySelectorAll('.panel').length;
+    function updateProgress(){
+      const i=Math.round(viewport.scrollLeft/window.innerWidth);
+      progress.style.width=((i+1)/PANELS()*100)+'%';
+    }
+    viewport.addEventListener('scroll',updateProgress);
+    addEventListener('resize',updateProgress);
+    setTimeout(updateProgress, 50);
+
+    // Modal
+    const formModal=document.getElementById('formModal');
+    function openForm(){ formModal.showModal(); ensureRD(); }
+    function closeForm(){ formModal.close(); }
+    window.addEventListener('keydown',e=>{ if(e.key==='Escape'&&formModal.open) closeForm(); });
+
+    // Starfield minimal
+    const canvas=document.getElementById('stars');const ctx=canvas.getContext('2d');let w,h,stars=[];
+    function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight;const n=Math.min(140,Math.ceil(w*h/11000));stars=new Array(n).fill(0).map(()=>({x:Math.random()*w,y:Math.random()*h,z:Math.random()*1+0.2,r:Math.random()*1.2+0.3}))}
+    function step(){ctx.clearRect(0,0,w,h);for(const s of stars){s.x+=s.z*0.12;if(s.x>w){s.x=0;s.y=Math.random()*h}ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,217,119,${0.55*s.z})`;ctx.fill()}requestAnimationFrame(step)}
+    addEventListener('resize',resize);resize();step();
+  </script>
+</body>
+</html>
