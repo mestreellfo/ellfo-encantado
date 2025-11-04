@@ -13,3 +13,8 @@ logo após o body (GTM PRINCIPAL)
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T78CTZLN"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+
+
+rd station antes da tag </body>
+
+<script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/f139a96e-ddde-467b-b8f8-d27dca53fb9e-loader.js" ></script>

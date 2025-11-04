@@ -196,5 +196,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function step(){ctx.clearRect(0,0,w,h);for(const s of stars){s.x+=s.z*0.12;if(s.x>w){s.x=0;s.y=Math.random()*h}ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,217,119,${0.55*s.z})`;ctx.fill()}requestAnimationFrame(step)}
   addEventListener('resize',resize);resize();step();
 </script>
+<script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/f139a96e-ddde-467b-b8f8-d27dca53fb9e-loader.js" ></script>
 </body>
 </html>
